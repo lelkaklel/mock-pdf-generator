@@ -17,26 +17,8 @@
 
 2. Запустите сервис:
    ```bash
-   uvicorn mock_pdf_generator:app --reload --port ${MPG_PORT:-8000}
+   python mock_pdf_generator.py
    ```
-
-   По умолчанию сервис будет доступен по адресу `http://localhost:8000`, порт можно указать с помощью переменной среды MPG_PORT.
-
-### Запуск с помощью Docker
-
-#### Сборка Docker-образа
-
-Для сборки Docker-образа выполните скрипт:
-
-```bash
-./build_docker.sh
-```
-
-Вы также можете указать конкретную версию образа:
-
-```bash
-./build_docker.sh v1.0
-```
 
 #### Запуск Docker-контейнера
 
@@ -56,16 +38,6 @@ curl -X POST http://localhost:8000/ \
   -d '{"message": "Hello, World!", "data": [1, 2, 3]}'
 ```
 
-Либо, чтобы сохранить файл на диск:
-
-```bash
-curl -s -X POST http://localhost:8000 \
-    -H "Content-Type: application/json" \
-    -d '{"message": "Hello, World!", "data": [1, 2, 3]}' \
-| jq -r '.document' \
-| base64 --decode > test.pdf
-```
-
 Сервис вернет ответ в формате JSON с PDF-документом в кодировке base64:
 
 ```json
@@ -75,6 +47,16 @@ curl -s -X POST http://localhost:8000 \
   "errors": [],
   "document": "JVBERi0xLjQKJcOkw7zDtsO..."
 }
+```
+
+Либо, чтобы сохранить файл на диск:
+
+```bash
+curl -s -X POST http://localhost:8000 \
+    -H "Content-Type: application/json" \
+    -d '{"message": "Hello, World!", "data": [1, 2, 3]}' \
+| jq -r '.document' \
+| base64 --decode > test.pdf
 ```
 
 ## Структура проекта
