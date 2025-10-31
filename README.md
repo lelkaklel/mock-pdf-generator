@@ -83,7 +83,7 @@ curl -s -X POST http://localhost:8000 \
 - `requirements.txt` - зависимости Python
 - `run_service.sh` - скрипт запуска сервиса
 - `cats.png` - изображение для PDF
-- `fonts/` - директория со шрифтами
+- `fonts/` - директория со шрифтами (спасибо )
 - `Dockerfile` - конфигурация Docker-образа
 - `build_docker.sh` - скрипт сборки Docker-образа
 - `deploy_docker.sh` - скрипт развертывания Docker-контейнера
@@ -95,6 +95,10 @@ curl -s -X POST http://localhost:8000 \
 - Uvicorn
 - ReportLab
 Полный список указан в `requirements.txt`
+
+## Шрифты
+
+В проекте использованы шрифры [DejaVu](https://dejavu-fonts.github.io)
 
 ## Лицензия
 
