@@ -81,12 +81,10 @@ curl -s -X POST http://localhost:8000 \
 
 - `mock_pdf_generator.py` - основной файл сервиса
 - `requirements.txt` - зависимости Python
-- `run_service.sh` - скрипт запуска сервиса
 - `cats.png` - изображение для PDF
 - `fonts/` - директория со шрифтами (спасибо )
 - `Dockerfile` - конфигурация Docker-образа
-- `build_docker.sh` - скрипт сборки Docker-образа
-- `deploy_docker.sh` - скрипт развертывания Docker-контейнера
+- `build_docker.sh` - скрипт сборки Docker-образаDocker-контейнера
 
 ## Зависимости
 
