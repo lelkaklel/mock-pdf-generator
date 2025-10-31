@@ -240,4 +240,4 @@ if __name__ == "__main__":
         print("✅ PDF успешно сохранён как example.pdf")
     else:
         print("🚀 Запуск FastAPI сервиса...")
-        uvicorn.run("calc_api_mock_server:app", host="0.0.0.0", port=8000)
+        uvicorn.run("mock_pdf_generator:app", host="0.0.0.0", port=8000)
