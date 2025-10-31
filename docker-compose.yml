@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  mock-pdf-generator:
+    image: ghcr.io/lelkaklel/mock-pdf-generator:latest
+    ports:
+      - "8000:8000"

@@ -18,7 +18,7 @@ VERSION=${1:-latest}
 echo "Сборка Docker-образа $IMAGE_NAME:$VERSION..."
 
 # Сборка образа
-docker build -t $IMAGE_NAME:$VERSION .
+docker build --platform linux/amd64 -t $IMAGE_NAME:$VERSION .
 
 if [ $? -eq 0 ]; then
     echo "Docker-образ $IMAGE_NAME:$VERSION успешно собран!"
