@@ -40,28 +40,10 @@
 
 #### Запуск Docker-контейнера
 
-Для запуска контейнера выполните скрипт:
+Для запуска контейнера выполните следующую команду:
 
 ```bash
-./deploy_docker.sh
-```
-
-Вы можете указать версию образа и порт хоста:
-
-```bash
-./deploy_docker.sh v1.0 8080
-```
-
-#### Ручной запуск Docker-контейнера
-
-Вы также можете собрать и запустить контейнер вручную:
-
-```bash
-# Сборка образа
-docker build -t mock-pdf-generator .
-
-# Запуск контейнера
-docker run -p 8000:8000 mock-pdf-generator
+docker run -p 8000:8000 ghcr.io/lelkaklel/mock-pdf-generator
 ```
 
 ## Использование API
@@ -72,6 +54,16 @@ docker run -p 8000:8000 mock-pdf-generator
 curl -X POST http://localhost:8000/ \
   -H "Content-Type: application/json" \
   -d '{"message": "Hello, World!", "data": [1, 2, 3]}'
+```
+
+Либо, чтобы сохранить файл на диск:
+
+```bash
+curl -s -X POST http://localhost:8000 \
+    -H "Content-Type: application/json" \
+    -d '{"message": "Hello, World!", "data": [1, 2, 3]}' \
+| jq -r '.document' \
+| base64 --decode > test.pdf
 ```
 
 Сервис вернет ответ в формате JSON с PDF-документом в кодировке base64:

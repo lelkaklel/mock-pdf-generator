@@ -21,19 +21,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Копируем исходный код приложения
 COPY mock_pdf_generator.py .
-COPY run_service.sh .
 COPY cats.png .
-COPY example.pdf .
 
 # Создаем директорию для шрифтов и копируем их
 RUN mkdir -p fonts
 COPY fonts/ ./fonts/
 
-# Делаем исполняемым скрипт запуска
-RUN chmod +x run_service.sh
-
-# Открываем порт
+# Объявляем порт
 EXPOSE 8000
 
 # Команда запуска приложения
-CMD ["./run_service.sh"]
+CMD ["uvicorn", "mock_pdf_generator:app", "--host", "0.0.0.0", "--port", "8000"]

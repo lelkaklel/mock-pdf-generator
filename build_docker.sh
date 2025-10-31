@@ -10,7 +10,7 @@ then
 fi
 
 # Название образа
-IMAGE_NAME="mock-pdf-generator"
+IMAGE_NAME="ghcr.io/lelkaklel/mock-pdf-generator"
 
 # Версия образа (по умолчанию latest)
 VERSION=${1:-latest}
